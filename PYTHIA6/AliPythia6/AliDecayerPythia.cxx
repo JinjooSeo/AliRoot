@@ -423,13 +423,20 @@ void AliDecayerPythia::ForceDecay()
 	ForceParticleDecay(  531,443,1); // B_s     
 	ForceParticleDecay( 5122,443,1); // Lambda_b
 	break;
-    case kBJpsiUndecayed:
-        ForceParticleDecay(  511,443,1); // B0     
-        ForceParticleDecay(  521,443,1); // B+/-     
-        ForceParticleDecay(  531,443,1); // B_s     
-        ForceParticleDecay( 5122,443,1); // Lambda_b
-        fPythia->SetMDCY(fPythia->Pycomp(443),1,0); // switch-off J/psi 
-        break;
+	case kBJpsiUndecayed:
+    products[0] =    443; 
+    products[1] = 100443;
+    mult[0] = 1; 
+    mult[1] = 1; 
+
+    ForceParticleDecay(  511, products, mult, 1); // B0   -> J/Psi (Psi') X
+    ForceParticleDecay(  521, products, mult, 1); // B+/- -> J/Psi (Psi') X
+    ForceParticleDecay(  531, products, mult, 1); // B_s  -> J/Psi (Psi') X
+    ForceParticleDecay( 5122, products, mult, 1); // Lambda_b -> J/Psi (Psi') X
+
+    fPythia->SetMDCY(fPythia->Pycomp(443),1,0); // switch-off J/psi 
+    fPythia->SetMDCY(fPythia->Pycomp(100443),1,0); // switch-off Psi' 
+	break;
     case kBPsiPrimeDiElectron:
 	ForceParticleDecay(  511,100443,1); // B0     
 	ForceParticleDecay(  521,100443,1); // B+/-     

@@ -254,6 +254,9 @@ void AliDecayerEvtGen::ForceDecay()
      case kBPsiPrimeDiElectron:
       SetDecayTablePath(gSystem->ExpandPathName("$ALICE_ROOT/TEvtGen/EvtGen/DecayTable/BTOPSIPRIMETODIELECTRON.DEC"));
       break;
+	case kBPsiJpsiDiElectron:
+      SetDecayTablePath(gSystem->ExpandPathName("$ALICE_ROOT/TEvtGen/EvtGen/DecayTable/BTOPSIJPSITODIELECTRON.DEC"));
+      break;
      case kJpsiDiMuon:
       SetDecayTablePath(gSystem->ExpandPathName("$ALICE_ROOT/TEvtGen/EvtGen/DecayTable/JPSIDIMUON.DEC"));
       break;
